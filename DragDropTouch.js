@@ -240,6 +240,8 @@ var DragDropTouch;
             }
         };
         DragDropTouch.prototype._touchend = function (e) {
+            clearTimeout(this._touchTimer);
+            
             if (this._shouldHandle(e)) {
                 // see if target wants to handle up
                 if (this._dispatchEvent(this._lastTouch, 'mouseup', e.target)) {
